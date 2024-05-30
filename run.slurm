@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #SBATCH --partition=GPU
-#SBATCH --job-name=Lightning
+#SBATCH --job-name=UNet-v2
 #SBATCH --time=0
 #SBATCH --mem=0
 

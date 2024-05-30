@@ -6,7 +6,7 @@ import segmentation_models_pytorch as smp
 
 from pprint import pprint
 from torch.utils.data import DataLoader
-from models.unet.model_v1 import UNet
+from models.unet.model_v2 import UNet
 
 from segmentation_models_pytorch.datasets import SimpleOxfordPetDataset
 
@@ -167,7 +167,7 @@ with torch.no_grad():
     logits = model(batch["image"])
 pr_masks = logits.sigmoid()
 
-os.makedirs('results', exist_ok = True)
+os.makedirs('unetv2_results_50epochs', exist_ok = True)
 for idx, (image, gt_mask, pr_mask) in enumerate(zip(batch["image"], batch["mask"], pr_masks)):
     plt.figure(figsize=(10, 5))
 
@@ -186,4 +186,4 @@ for idx, (image, gt_mask, pr_mask) in enumerate(zip(batch["image"], batch["mask"
     plt.title("Prediction")
     plt.axis("off")
 
-    plt.savefig("results/results{:02d}.png".format(idx))
+    plt.savefig("unetv2_results_50epochs/results{:02d}.png".format(idx))
