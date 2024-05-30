@@ -1,0 +1,4 @@
+figures/
+lightning_logs/
+results/
+*.out
