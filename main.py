@@ -6,6 +6,7 @@ import segmentation_models_pytorch as smp
 
 from pprint import pprint
 from torch.utils.data import DataLoader
+from models.unet.model_v1 import UNet
 
 from segmentation_models_pytorch.datasets import SimpleOxfordPetDataset
 
@@ -59,9 +60,10 @@ plt.savefig('figures/figure03.png')
 class PetModel(pl.LightningModule):
     def __init__(self, arch, encoder_name, in_channels, out_classes, **kwargs):
         super().__init__()
-        self.model = smp.create_model(
-            arch, encoder_name=encoder_name, in_channels=in_channels, classes=out_classes, **kwargs
-        )
+        # self.model = smp.create_model(
+        #     arch, encoder_name=encoder_name, in_channels=in_channels, classes=out_classes, **kwargs
+        # )
+        self.model = UNet()
 
         # preprocessing parameters for image
         params = smp.encoders.get_preprocessing_params(encoder_name)

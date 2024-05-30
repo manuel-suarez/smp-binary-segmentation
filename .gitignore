@@ -2,3 +2,4 @@ figures/
 lightning_logs/
 results/
 *.out
+__pycache__
