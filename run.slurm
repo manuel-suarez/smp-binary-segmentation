@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #SBATCH --partition=GPU
-#SBATCH --job-name=UNet-v4
+#SBATCH --job-name=UNet-v5
 #SBATCH --time=0
 #SBATCH --mem=0
 
